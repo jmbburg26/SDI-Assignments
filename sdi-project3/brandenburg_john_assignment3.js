@@ -20,6 +20,7 @@ var	basicTraining = {
 		activities: 	[ "PT Test", "Shooting Range", "Rappelling Wall", "Bradley Driving Course", "20K Road March", "Graduation" ],
 		barricksName:	"Disney",
 		lotOfFun:		true,
+		cavMotto:		"If you ain't Cav, you ain't shit!",
 		hardestPhase:	function (location) {}
 };
 
@@ -52,7 +53,7 @@ console.log("With a score of 220, " + apftTestScore + "!");
 console.log("While training to be a " + bestJobEver + ", " + soldierName + " did a lot of Road Marches.");
 console.log("He did a total of 7 marches.");
 console.log("The total distance of the marches was " + roadMarchDistance + " miles.");
-
+console.log(soldierName + " is counting the weeks until he can go home.");
 var goingHome = function(weeksOfBasic){
  	while (weeksOfBasic > 0){
 		weeksOfBasic--;
@@ -60,3 +61,16 @@ var goingHome = function(weeksOfBasic){
 		}
 };
 var timeLeft = goingHome(20);
+
+console.log(soldierName + " is ready to go home!!!");
+
+
+var basicRecap = function(weeksGone){
+	for (var weeksGone = 4; weeksGone < 4; weeksGone-4){
+	var timeGone = (weeksGone * 7)
+	return console.log("I'm glad all that is over.");
+	};
+};
+
+var timeInPhases = basicRecap(20);
+console.log(timeInPhases);
