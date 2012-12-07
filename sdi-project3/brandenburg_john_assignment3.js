@@ -5,6 +5,14 @@ var soldierName = "PFC Brandenburg";
 var	bestJobEver = "Cavalry Scout";
 var	goArmy = "Army";
 
+//My Procedure
+var getReadyToGo = function(amIReady){
+	if (amIReady = true) {
+	return console.log(soldierName + " had a blast training to be " + bestJobEver)
+	} else {return console.log("I am not ready.")}
+};
+var myDecision = getReadyToGo(true);
+
 //My objects
 var	basicTraining = {
 		stationName:	"Fort Knox",
@@ -12,8 +20,7 @@ var	basicTraining = {
 		activities: 	[ "PT Test", "Shooting Range", "Rappelling Wall", "Bradley Driving Course", "20K Road March", "Graduation" ],
 		barricksName:	"Disney",
 		lotOfFun:		true,
-		getlocation:	function (location) {},
-		timeAtBasic:	function () {}
+		hardestPhase:	function (location) {}
 };
 
 var trainingBase = basicTraining.stationName;
@@ -45,12 +52,11 @@ console.log("With a score of 220, " + apftTestScore + "!");
 console.log("While training to be a " + bestJobEver + ", " + soldierName + " did a lot of Road Marches.");
 console.log("He did a total of 7 marches.");
 console.log("The total distance of the marches was " + roadMarchDistance + " miles.");
-console.log(roadMarchDistance);
 
 var goingHome = function(weeksOfBasic){
  	while (weeksOfBasic > 0){
 		weeksOfBasic--;
-		console.log(weeksOfBasic + " more weeks until I go home!");
+	console.log(weeksOfBasic + " more weeks until I go home!");
 		}
 };
 var timeLeft = goingHome(20);
