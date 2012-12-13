@@ -8,9 +8,8 @@
 //My Library
 
 var myCodeLibrary = function(){
-//Strings	
+
 	//Is String a URL?
-	
 	var isStringUrl = function(val){
 		if (val === "http:","https:"){
 			return "This is a valid URL";
@@ -25,17 +24,20 @@ var myCodeLibrary = function(){
 			return stringToNumber;
 		};
 
-	var findPhoneNumber = function(){
-		pattern = Pattern.compile("\\d{3}-\\d{3}-\\d{4}");
-		matcher = pattern.matcher(str);
-			if (matcher.find()) {
-    		System.out.println(matcher.group(0))
-    			return true;
-    		} else {return false;
-    	}
-	};
-	
-	function checkEmailPattern(emailToCheck) {
+	//Check Phone Number
+	var checkPhoneNumber = function (testNumber) {
+        var phoneNumber = testNumber;
+        var pattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; // Phone number pattern.
+        if (pattern.test(phoneNumber)) { // checks number against pattern.
+            var validPhoneNumber = phoneNumber.replace(pattern, "($1) $2-$3");
+            return "This is a valid phone number!";
+        } else {
+            return "This is an invalid phone number!";
+        }
+    }
+
+	//Check Email Pattern
+	var checkEmail = function checkEmailPattern(emailToCheck) {
     	var emailAddress = emailToCheck
     	var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/
     		if (emailPattern.test(emailAddress)) {
@@ -43,13 +45,21 @@ var myCodeLibrary = function(){
    				 } else {
         		return "Not a valid email address."};
 	};
-	//Arrays
-
+	
+	//Compare Date Function
+	var getMyDate = function getDays(testDate) {
+    	var myBirthday = testDate;
+    		today = new Date(2012, 11, 13);
+    	var one_day = 1000 * 60 * 60 * 24;
+    		return (Math.ceil((today.getTime() - new Date(1986,7,15)) / (one_day)) + " days have gone by since " + testDate)
+	};
 
 	return {
 		"isStringUrl": 		isStringUrl,
 		"convertToNumeric":	convertToNumeric,
-		"checkEmailPattern":checkEmailPattern,
+		"checkPhoneNumber":	checkPhoneNumber,
+		"checkEmail":		checkEmail,
+		"getMyDate":		getMyDate,
 	};
 };
 
@@ -58,4 +68,6 @@ var newLib = myCodeLibrary();
 
 console.log("Is https://www.fullsail.edu an URL? " + newLib.isStringUrl("https://www.fullsail.edu"));
 console.log(newLib.convertToNumeric("78"));
-console.log("Is jmbburg26@gmail.com a valid email address? " + newLib.checkEmailPattern("jmbburg26@gmail.com"));
+console.log("Is jmbburg26@gmail.com a valid email address? " + newLib.checkEmail("jmbburg26@gmail.com"));
+console.log("Is 619-555-1234 a valid phone number? " + newLib.checkPhoneNumber("619-555-1234"));
+console.log(newLib.getMyDate("August 15, 1986"));
